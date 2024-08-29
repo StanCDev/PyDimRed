@@ -1,5 +1,6 @@
 LICENSE
 README.md
+setup.cfg
 setup.py
 PyDimRed/__init__.py
 PyDimRed/evaluation.py

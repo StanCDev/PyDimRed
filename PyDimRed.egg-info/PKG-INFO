@@ -1,9 +1,9 @@
 Metadata-Version: 2.1
 Name: PyDimRed
-Version: 0.0.1
+Version: 0.0.2
 Summary: Dimensionality reduction library
 Home-page: https://github.com/StanCDev/PyDimRed
-Download-URL: https://github.com/StanCDev/PyDimRed/archive/refs/tags/v_01.tar.gz
+Download-URL: https://github.com/StanCDev/PyDimRed/archive/refs/tags/v_02.tar.gz
 Author: StanCDev
 Author-email: stancastellana@icloud.com
 Classifier: Programming Language :: Python :: 3
