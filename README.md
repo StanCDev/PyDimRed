@@ -19,7 +19,7 @@ pip install .
 ```
 
 ## How to use PyDimRed
-As stated previously, PyDimRed is centered around 3 functionalities...
+As stated previously, PyDimRed is centered around 3 functionalities and a DR utility module that will be explored through examples.
 
 ### Transforming Data
 Data transformation is undertaken using the `PyDimRed.transform` module. A dimensionality reduction model is instanciated using the `PyDimRed.transform.TransformWrapper` class. As the name of the class indicates, it is a wrapper class that takes any object satisfying the definition of a **Transform** (an object that must have certain methods with specific signatures). 
