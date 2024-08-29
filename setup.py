@@ -12,7 +12,8 @@ setuptools.setup(
     description="Dimensionality reduction library",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/smrfeld/sphinx_autodoc_tutorial",
+    url="https://github.com/StanCDev/DimRed",
+    download_url='https://github.com/StanCDev/DimRed/archive/v_01.tar.gz',
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
