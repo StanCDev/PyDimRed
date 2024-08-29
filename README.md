@@ -1,28 +1,28 @@
-# DimRed
+# PyDimRed
 
-DimRed is a dimenstionality reduction (DR) library built around sklearn. It integrates three main functionalities: data **transformation**, model **evaluation**, and data **plotting**.
+PyDimRed is a dimenstionality reduction (DR) library built around sklearn. It integrates three main functionalities: data **transformation**, model **evaluation**, and data **plotting**.
 
 ## Install
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install DimRed.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install PyDimRed.
 
 The dependencies for this library are [joblib](https://www.google.com/search?client=firefox-b-d&q=python+joblib), [seaborn](https://seaborn.pydata.org/), [numpy](https://numpy.org/), [sci-kit learn](https://scikit-learn.org/stable/), [umap](https://umap-learn.readthedocs.io/en/latest/), [pacmap](https://pypi.org/project/pacmap/), [trimap](https://pypi.org/project/trimap/), [open t-SNE](https://opentsne.readthedocs.io/en/stable/), and [pandas](https://pandas.pydata.org/).
 
-To install DimRed via pip simply run the following:
+To install PyDimRed via pip simply run the following:
 ```bash
-pip install DimRed
+pip install PyDimRed
 ```
 
 Or clone the repo, cd into it and run the following:
 ```bash
-cd DimRed
+cd PyDimRed
 pip install .
 ```
 
-## How to use DimRed
-As stated previously, DimRed is centered around 3 functionalities...
+## How to use PyDimRed
+As stated previously, PyDimRed is centered around 3 functionalities...
 
 ### Transforming Data
-Data transformation is undertaken using the `DimRed.transform` module. A dimensionality reduction model is instanciated using the `DimRed.transform.TransformWrapper` class. As the name of the class indicates, it is a wrapper class that takes any object satisfying the definition of a **Transform** (an object that must have certain methods with specific signatures). 
+Data transformation is undertaken using the `PyDimRed.transform` module. A dimensionality reduction model is instanciated using the `PyDimRed.transform.TransformWrapper` class. As the name of the class indicates, it is a wrapper class that takes any object satisfying the definition of a **Transform** (an object that must have certain methods with specific signatures). 
 
 There are two ways of instanciating a `TransformWrapper`object:
 1. By specifying the `method : str` parameter. This will create a built-in DR model from the libraries in the [install](#install) section.
@@ -31,8 +31,8 @@ There are two ways of instanciating a `TransformWrapper`object:
 Here is a quick example on the use of  `TransformWrapper` to transform the iris dataset to 2 dimensions with a built in DR method.
 
 ```python
-from DimRed.transform import TransformWrapper
-from DimRed.plot import display
+from PyDimRed.transform import TransformWrapper
+from PyDimRed.plot import display
 from sklearn.datasets import load_iris
 
 X, y = load_iris(return_X_y=True)
@@ -51,8 +51,8 @@ display(
 
 The model can be customized by passing a mode as argument for further customization.
 ```python
-from DimRed.transform import TransformWrapper
-from DimRed.plot import display
+from PyDimRed.transform import TransformWrapper
+from PyDimRed.plot import display
 from sklearn.datasets import load_iris
 from sklearn.manifold import TSNE
 
@@ -71,7 +71,7 @@ display(
 ```
 
 ### Evaluating models
-The evaluation module `DimRed.evaluation` provides two main dimensionality reduction evalution methods in the class `DimRed.evaluation.ModelEvaluator`. The methods are `DimRed.evaluation.ModelEvaluator.grid_search_dr_performance` and `DimRed.evaluation.ModelEvaluator.cross_validation`. 
+The evaluation module `PyDimRed.evaluation` provides two main dimensionality reduction evalution methods in the class `PyDimRed.evaluation.ModelEvaluator`. The methods are `PyDimRed.evaluation.ModelEvaluator.grid_search_dr_performance` and `PyDimRed.evaluation.ModelEvaluator.cross_validation`. 
 
 1. `cross_validation` wraps around `sklearn.model_selection.GridSearchCV`. In cross validation, an estimator is trained on validation data and predictions are made on test data. This would be achieved via a call to `fit()` and then `transform()` on different data sets. Some DR methods like `trimap.TRIMAP` and `sklearn.manifold.TSNE` do not support transforming non-training data. Consequently, standard cross validation cannot be used, and hence the `grid_search_dr_performance` is used.
 2. `grid_search_dr_performance` is a work-around solution for DR methods that only implement a `fit_transform()` method, which fits the model on a dataset and returns the transformed data. Models that only have this method are generally unable to transform other data points that were not part of the original train data. This method fits a DR model on the training data and transforms the training data. It then fits a new DR model on the validation data and transforms the validation data. Finally and estimator is used to obtain a performance value. For classification an sklearn pipeline with a Standard Scaler and 1-Nearest Neighbour classifier is used by default and for regression a 1-NN regressor can be used for example.
@@ -79,8 +79,8 @@ The evaluation module `DimRed.evaluation` provides two main dimensionality reduc
 We start off by showing an example to display the use of `grid_search_dr_performance` with trimap.
 
 ```python
-from DimRed.plot import display_heatmap_df
-from DimRed.evaluation import ModelEvaluator
+from PyDimRed.plot import display_heatmap_df
+from PyDimRed.evaluation import ModelEvaluator
 
 from sklearn.datasets import load_iris
 from sklearn.pipeline import Pipeline
@@ -135,8 +135,8 @@ The method will create parameter combinations accoring to sklearn's [ParameterGr
 We now look at an example of cross validation.
 
 ```python
-from DimRed.plot import display_heatmap_df
-from DimRed.evaluation import ModelEvaluator
+from PyDimRed.plot import display_heatmap_df
+from PyDimRed.evaluation import ModelEvaluator
 
 from sklearn.datasets import load_iris
 
@@ -152,7 +152,7 @@ display_heatmap_df(results,'param_Transform__method','param_Transform__n_nbrs', 
 
 ### Plotting
 
-Plotting is built over the seaborn library. Methods in the module `DimRed.plot` have the goal to present transformed data or model evaluation results. The methods and the resulting plots are:
+Plotting is built over the seaborn library. Methods in the module `PyDimRed.plot` have the goal to present transformed data or model evaluation results. The methods and the resulting plots are:
 
 - `display` Plot a 2-D dataset on a seaborn relplot.
 - `display_group` Plot a grid-like arrangement of sub-plots. Can be used to qualitatively compare effectivenes of DR methods, or vary a parameter and see the effect of it visually. 
@@ -165,8 +165,8 @@ The most flexible method for qualitative comparisons of reduced data is `display
 
 1. To simply plot transformed data from the same source data set with heterogeneous models as below.
 ```python
-from DimRed.utils.dr_utils import reduce_data_with_params
-from DimRed.plot import display_group
+from PyDimRed.utils.dr_utils import reduce_data_with_params
+from PyDimRed.plot import display_group
 
 from sklearn.datasets import load_digits
 
@@ -189,8 +189,8 @@ display_group(
 
 2. To plot transformed data with different model parameters in a grid like fashion.
 ```python
-from DimRed.utils.dr_utils import reduce_data_with_params
-from DimRed.plot import display_group
+from PyDimRed.utils.dr_utils import reduce_data_with_params
+from PyDimRed.plot import display_group
 
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_digits
@@ -221,8 +221,8 @@ display_group(
 
 3. To plot training and test data on the same subplots to compare transformations. 
 ```python
-from DimRed.utils.dr_utils import reduce_data_with_params
-from DimRed.plot import display_group
+from PyDimRed.utils.dr_utils import reduce_data_with_params
+from PyDimRed.plot import display_group
 
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_digits
@@ -260,7 +260,7 @@ display_group(
 
 ### Utilities
 
-The two utility modules are `DimRed.utils.data` and `DimRed.utils.dr_utils`. The first module has purpose to load csv files to `numpy.array` /  `pandas.DataFrame` while the latter concerns itself with batch processing.
+The two utility modules are `PyDimRed.utils.data` and `PyDimRed.utils.dr_utils`. The first module has purpose to load csv files to `numpy.array` /  `pandas.DataFrame` while the latter concerns itself with batch processing.
 
 The main method in `dr_utils`is `reduce_data_with_params` which given a dictionary with parameter value pairs transforms a given data set according to all passed methods.
 
