@@ -6,14 +6,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PyDimRed",
-    version="0.0.3",
+    version="0.0.4",
     author="StanCDev",
     author_email="stancastellana@icloud.com",
     description="Dimensionality reduction library",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/StanCDev/PyDimRed",
-    download_url='https://github.com/StanCDev/PyDimRed/archive/refs/tags/v_03.tar.gz',
+    download_url='https://github.com/StanCDev/PyDimRed/archive/refs/tags/v_04.tar.gz',
     packages= setuptools.find_packages(),
     install_requires= 
     [
