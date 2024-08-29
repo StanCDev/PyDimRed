@@ -7,9 +7,9 @@ from os.path import basename, splitext
 import re
 from sklearn.datasets import load_iris
 
-from DimRed.plot import display, display_group, display_heatmap, display_heatmap_df, display_training_validation
-from DimRed.utils.dr_utils import reduce_data_with_params, path_to_names
-from DimRed.transform import TransformWrapper
+from PyDimRed.plot import display, display_group, display_heatmap, display_heatmap_df, display_training_validation
+from PyDimRed.utils.dr_utils import reduce_data_with_params, path_to_names
+from PyDimRed.transform import TransformWrapper
 
 TEST_SIZE = 0.3
 

@@ -1,24 +1,24 @@
 Metadata-Version: 2.1
-Name: DimRed
+Name: PyDimRed
 Version: 0.0.1
 Summary: Dimensionality reduction library
-Home-page: https://github.com/StanCDev/DimRed
-Download-URL: https://github.com/StanCDev/DimRed/archive/refs/tags/v_01.tar.gz
+Home-page: https://github.com/StanCDev/PyDimRed
+Download-URL: https://github.com/StanCDev/PyDimRed/archive/refs/tags/v_01.tar.gz
 Author: StanCDev
 Author-email: stancastellana@icloud.com
 Classifier: Programming Language :: Python :: 3
-Classifier: License :: Apache 2.0 license
+Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.12
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: sklearn
+Requires-Dist: scikit-learn
 Requires-Dist: numpy
 Requires-Dist: pandas
 Requires-Dist: joblib
 Requires-Dist: seaborn
 Requires-Dist: matplotlib
-Requires-Dist: umap
+Requires-Dist: umap-learn
 Requires-Dist: trimap
 Requires-Dist: pacmap
 Requires-Dist: openTSNE

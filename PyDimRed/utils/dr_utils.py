@@ -11,8 +11,8 @@ from joblib import Parallel, delayed
 import numpy as np
 
 from .data import save_data
-from DimRed.exceptions import checkCondition, checkDimensionCondition
-from DimRed.transform import TransformWrapper
+from PyDimRed.exceptions import checkCondition, checkDimensionCondition
+from PyDimRed.transform import TransformWrapper
 
 
 def reduce_data_with_params(

@@ -11,8 +11,8 @@ import trimap
 from sklearn import decomposition
 import pacmap
 
-from DimRed.utils.dr_utils import reduce_data_with_params
-from DimRed.evaluation import one_NN_accuracy, ModelEvaluator
+from PyDimRed.utils.dr_utils import reduce_data_with_params
+from PyDimRed.evaluation import one_NN_accuracy, ModelEvaluator
 
 
 TEST_SIZE = 0.3

@@ -5,8 +5,8 @@ import numpy as np
 from sklearn.model_selection import ParameterGrid
 from sklearn.datasets import load_iris
 
-from DimRed.utils.data import load_data_np
-from DimRed.utils.dr_utils import reduce_data_with_params
+from PyDimRed.utils.data import load_data_np
+from PyDimRed.utils.dr_utils import reduce_data_with_params
 
 @pytest.fixture(scope="module")
 def load_data_train():

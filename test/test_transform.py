@@ -1,5 +1,5 @@
 import pytest
-from DimRed.transform import TransformWrapper
+from PyDimRed.transform import TransformWrapper
 from sklearn.datasets import load_iris
 from sklearn import decomposition
 
