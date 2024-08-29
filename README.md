@@ -24,11 +24,11 @@ As stated previously, PyDimRed is centered around 3 functionalities...
 ### Transforming Data
 Data transformation is undertaken using the `PyDimRed.transform` module. A dimensionality reduction model is instanciated using the `PyDimRed.transform.TransformWrapper` class. As the name of the class indicates, it is a wrapper class that takes any object satisfying the definition of a **Transform** (an object that must have certain methods with specific signatures). 
 
-There are two ways of instanciating a `TransformWrapper`object:
+There are two ways of instanciating a `TransformWrapper` object:
 1. By specifying the `method : str` parameter. This will create a built-in DR model from the libraries in the [install](#install) section.
-2. By passing a `base_model` parameter. Using the `base_model`argument allows for the use of a user defined DR model.
+2. By passing a `base_model` parameter. Using the `base_model` argument allows for the use of a user defined DR model.
 
-Here is a quick example on the use of  `TransformWrapper` to transform the iris dataset to 2 dimensions with a built in DR method.
+Here is a quick example on the use of `TransformWrapper` to transform the iris dataset to 2 dimensions with a built in DR method.
 
 ```python
 from PyDimRed.transform import TransformWrapper
@@ -126,7 +126,7 @@ display_heatmap_df(
     title=f"Variance of 1-NN as a function of number of inliers and outliers in TRIMAP with d=2. K={K} cross validation with {n_repeats} repetitions"
     )
 ```
-In this example we instantiate a `ModelEvaluator` object to then call `grid_search_dr_performance`. The data sets and parameters are passed during instantiation. The estimator parameter is explicitly passed as an argument, even if it is the default value, to highlight its importance. The estimator's purpose is to what defines the performance of a DR model. After the train and validation data has been transformed, it is trained on the train transformed data via `fit()`and evaluated on the transformed validation data via `score()`. It is convenient to use an `sklearn.pipeline.Pipeline` as it easily allows chaining (e.g scaling) of the data.
+In this example we instantiate a `ModelEvaluator` object to then call `grid_search_dr_performance`. The data sets and parameters are passed during instantiation. The estimator parameter is explicitly passed as an argument, even if it is the default value, to highlight its importance. The estimator's purpose is to what defines the performance of a DR model. After the train and validation data has been transformed, it is trained on the train transformed data via `fit()` and evaluated on the transformed validation data via `score()`. It is convenient to use an `sklearn.pipeline.Pipeline` as it easily allows chaining (e.g scaling) of the data.
 
 In comparison to what `cross_validation` returns, the `results` variable contains less data as in `cross_validation` the result of [`sklearn.model_selection.GridSearchCV`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) is returned.
 
@@ -262,7 +262,7 @@ display_group(
 
 The two utility modules are `PyDimRed.utils.data` and `PyDimRed.utils.dr_utils`. The first module has purpose to load csv files to `numpy.array` /  `pandas.DataFrame` while the latter concerns itself with batch processing.
 
-The main method in `dr_utils`is `reduce_data_with_params` which given a dictionary with parameter value pairs transforms a given data set according to all passed methods.
+The main method in `dr_utils` is `reduce_data_with_params` which given a dictionary with parameter value pairs transforms a given data set according to all passed methods.
 
 ## For developpers
 
