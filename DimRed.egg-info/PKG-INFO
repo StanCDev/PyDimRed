@@ -1,0 +1,292 @@
+Metadata-Version: 2.1
+Name: DimRed
+Version: 0.0.1
+Summary: Dimensionality reduction library
+Home-page: https://github.com/smrfeld/sphinx_autodoc_tutorial
+Author: StanCDev
+Author-email: stancastellana@icloud.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Apache 2.0 license
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# DimRed
+
+DimRed is a dimenstionality reduction (DR) library built around sklearn. It integrates three main functionalities: data **transformation**, model **evaluation**, and data **plotting**.
+
+## Install
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install DimRed.
+
+The dependencies for this library are [joblib](https://www.google.com/search?client=firefox-b-d&q=python+joblib), [seaborn](https://seaborn.pydata.org/), [numpy](https://numpy.org/), [sci-kit learn](https://scikit-learn.org/stable/), [umap](https://umap-learn.readthedocs.io/en/latest/), [pacmap](https://pypi.org/project/pacmap/), [trimap](https://pypi.org/project/trimap/), [open t-SNE](https://opentsne.readthedocs.io/en/stable/), and [pandas](https://pandas.pydata.org/).
+
+To install DimRed via pip simply run the following:
+```bash
+pip install DimRed
+```
+
+Or clone the repo, cd into it and run the following:
+```bash
+cd DimRed
+pip install .
+```
+
+## How to use DimRed
+As stated previously, DimRed is centered around 3 functionalities...
+
+### Transforming Data
+Data transformation is undertaken using the `DimRed.transform` module. A dimensionality reduction model is instanciated using the `DimRed.transform.TransformWrapper` class. As the name of the class indicates, it is a wrapper class that takes any object satisfying the definition of a **Transform** (an object that must have certain methods with specific signatures). 
+
+There are two ways of instanciating a `TransformWrapper`object:
+1. By specifying the `method : str` parameter. This will create a built-in DR model from the libraries in the [install](#install) section.
+2. By passing a `base_model` parameter. Using the `base_model`argument allows for the use of a user defined DR model.
+
+Here is a quick example on the use of  `TransformWrapper` to transform the iris dataset to 2 dimensions with a built in DR method.
+
+```python
+from DimRed.transform import TransformWrapper
+from DimRed.plot import display
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+model = TransformWrapper(method = "PCA", d = 2)
+X_reduced = model.fit_transform(X, y)
+
+display(
+    X = X_reduced,
+    y = y,
+    title = "PCA reduction of iris data set to 2 dimensions",
+    x_label = "1st principal component",
+    y_label = "2nd principal component",
+    hue_label = "iris features",
+)
+```
+
+The model can be customized by passing a mode as argument for further customization.
+```python
+from DimRed.transform import TransformWrapper
+from DimRed.plot import display
+from sklearn.datasets import load_iris
+from sklearn.manifold import TSNE
+
+X, y = load_iris(return_X_y=True)
+model = TransformWrapper(base_model = TSNE(n_components=2, perplexity=30.0))
+X_reduced = model.fit_transform(X, y)
+
+display(
+    X = X_reduced,
+    y = y,
+    title = "PCA reduction of iris data set to 2 dimensions",
+    x_label = "1st principal component",
+    y_label = "2nd principal component",
+    hue_label = "iris features",
+)
+```
+
+### Evaluating models
+The evaluation module `DimRed.evaluation` provides two main dimensionality reduction evalution methods in the class `DimRed.evaluation.ModelEvaluator`. The methods are `DimRed.evaluation.ModelEvaluator.grid_search_dr_performance` and `DimRed.evaluation.ModelEvaluator.cross_validation`. 
+
+1. `cross_validation` wraps around `sklearn.model_selection.GridSearchCV`. In cross validation, an estimator is trained on validation data and predictions are made on test data. This would be achieved via a call to `fit()` and then `transform()` on different data sets. Some DR methods like `trimap.TRIMAP` and `sklearn.manifold.TSNE` do not support transforming non-training data. Consequently, standard cross validation cannot be used, and hence the `grid_search_dr_performance` is used.
+2. `grid_search_dr_performance` is a work-around solution for DR methods that only implement a `fit_transform()` method, which fits the model on a dataset and returns the transformed data. Models that only have this method are generally unable to transform other data points that were not part of the original train data. This method fits a DR model on the training data and transforms the training data. It then fits a new DR model on the validation data and transforms the validation data. Finally and estimator is used to obtain a performance value. For classification an sklearn pipeline with a Standard Scaler and 1-Nearest Neighbour classifier is used by default and for regression a 1-NN regressor can be used for example.
+
+We start off by showing an example to display the use of `grid_search_dr_performance` with trimap.
+
+```python
+from DimRed.plot import display_heatmap_df
+from DimRed.evaluation import ModelEvaluator
+
+from sklearn.datasets import load_iris
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+
+X, y = load_iris(return_X_y=True)
+
+params = [{"method" : ["TRIMAP"], "n_nbrs" : range(2,20,3), "n_outliers" : range(2,20,3)}]
+
+estimator = Pipeline(steps=[("Scaler", StandardScaler()), ("OneNN", KNeighborsClassifier(1))])
+
+K = 4
+
+n_repeats = 15
+
+model_eval = ModelEvaluator(
+    X=X,
+    y=y,
+    parameters=params,
+    estimator = estimator,
+    K=K,
+    n_repeats=n_repeats,
+    n_jobs=-1,
+)
+best_score, best_params, results = model_eval.grid_search_dr_performance()
+
+print(f"The best accuracy is {best_score} with the following parameters {best_params}")
+
+display_heatmap_df(
+    results, 
+    "n_nbrs", 
+    "n_outliers",
+    "score",
+    title=f"Accuracy of 1-NN as a function of number of inliers and outliers in TRIMAP with d=2. K={K} cross validation with {n_repeats} repetitions"
+    )
+
+display_heatmap_df(
+    results,
+    "n_nbrs",
+    "n_outliers",
+    "variance",
+    title=f"Variance of 1-NN as a function of number of inliers and outliers in TRIMAP with d=2. K={K} cross validation with {n_repeats} repetitions"
+    )
+```
+In this example we instantiate a `ModelEvaluator` object to then call `grid_search_dr_performance`. The data sets and parameters are passed during instantiation. The estimator parameter is explicitly passed as an argument, even if it is the default value, to highlight its importance. The estimator's purpose is to what defines the performance of a DR model. After the train and validation data has been transformed, it is trained on the train transformed data via `fit()`and evaluated on the transformed validation data via `score()`. It is convenient to use an `sklearn.pipeline.Pipeline` as it easily allows chaining (e.g scaling) of the data.
+
+In comparison to what `cross_validation` returns, the `results` variable contains less data as in `cross_validation` the result of [`sklearn.model_selection.GridSearchCV`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) is returned.
+
+The method will create parameter combinations accoring to sklearn's [ParameterGrid](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ParameterGrid.html) class. In short, a sort of 'cross product' is taken between all parameter values in a dictionary, and when different dictionaries are in a list a union of parameters is computed. Note that n_jobs refers to the number of jobs in [joblib](https://www.google.com/search?client=firefox-b-d&q=python+joblib).
+
+We now look at an example of cross validation.
+
+```python
+from DimRed.plot import display_heatmap_df
+from DimRed.evaluation import ModelEvaluator
+
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+params = [{"method" : ["PACMAP"]} , {"method" : ["TSNE", "UMAP", "PACMAP"], "n_nbrs" : range(2,10,1) }]
+
+model_eval = ModelEvaluator(X,y,params,K=20, n_jobs=-1)
+
+bestScore, bestParams, results = model_eval.cross_validation()
+
+display_heatmap_df(results,'param_Transform__method','param_Transform__n_nbrs', 'mean_test_score')
+```
+
+### Plotting
+
+Plotting is built over the seaborn library. Methods in the module `DimRed.plot` have the goal to present transformed data or model evaluation results. The methods and the resulting plots are:
+
+- `display` Plot a 2-D dataset on a seaborn relplot.
+- `display_group` Plot a grid-like arrangement of sub-plots. Can be used to qualitatively compare effectivenes of DR methods, or vary a parameter and see the effect of it visually. 
+- `display_heatmap` Plot a heatmap given a square $N \times N$ `numpy.array`.
+- `display_heatmap_df` Plot a heatmap given a `pandas.DataFrame` where every row corresponds to parameters value pairs.
+- `display_accuracies` Plot accuracies and method name on a bar graph with color scale proportional to accuracy.
+- `display_training_validation` Line plot of accuracy vs. a common variable parameter for multiple methods.
+
+The most flexible method for qualitative comparisons of reduced data is `display_group`. It can be used in three main different ways:
+
+1. To simply plot transformed data from the same source data set with heterogeneous models as below.
+```python
+from DimRed.utils.dr_utils import reduce_data_with_params
+from DimRed.plot import display_group
+
+from sklearn.datasets import load_digits
+
+X, y = load_digits(return_X_y = True)
+
+params = [{"method" : ["TSNE", "UMAP", "TRIMAP"] , "n_nbrs" : [10,20,40,80]} , {"method" : ["PACMAP"]}]
+
+Xs_train_reduced, names = reduce_data_with_params(X,y,*params)
+
+display_group(
+    names=names,
+    X_train_list=Xs_train_reduced,
+    y_train=y,
+    nbr_cols=4,
+    nbr_rows=4,
+    legend="auto",
+    title=f"Transformed data via different DR models on the MNIST data set"
+    )
+```
+
+2. To plot transformed data with different model parameters in a grid like fashion.
+```python
+from DimRed.utils.dr_utils import reduce_data_with_params
+from DimRed.plot import display_group
+
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_digits
+
+
+X, y = load_digits(return_X_y = True)
+range1 = range(2,20,3)
+range2 = range(2,20,3)
+params = [{"method" : ["TRIMAP"], "n_nbrs" : range1, "n_outliers" : range2}]
+
+Xreds, _ = reduce_data_with_params(X,y,*params)
+
+cols = len(params[0]["n_nbrs"])
+rows = len(params[0]["n_outliers"])
+
+display_group(
+    names=None,
+    X_train_list=Xreds,
+    y_train=y,
+    nbr_cols=cols,
+    nbr_rows=rows,
+    marker_size=10,
+    grid_x_label=[f"n_inliers={i}" for i in range1],
+    grid_y_label=[f"n_outliers={i}" for i in range2],
+    title="TRIMAP with variation in number of inliers and number of outliers"
+    )
+```
+
+3. To plot training and test data on the same subplots to compare transformations. 
+```python
+from DimRed.utils.dr_utils import reduce_data_with_params
+from DimRed.plot import display_group
+
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_digits
+
+
+X, y = load_digits(return_X_y = True)
+range1 = range(2,20,3)
+range2 = range(2,20,3)
+params = [{"method" : ["TRIMAP"], "n_nbrs" : range1, "n_outliers" : range2}]
+
+cols = len(params[0]["n_nbrs"])
+rows = len(params[0]["n_outliers"])
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+
+
+XtrainReds, _ =  reduce_data_with_params(X_train, y_train,*params)
+
+XtestReds, _ =  reduce_data_with_params(X_test, y_test,*params)
+
+display_group(
+    names=None,
+    X_train_list=XtrainReds,
+    y_train=y_train,
+    X_test_list=XtestReds,
+    y_test=y_test,
+    nbr_cols=cols,
+    nbr_rows=rows,
+    marker_size=10,
+    grid_x_label=[f"n_inliers={i}" for i in range1],
+    grid_y_label=[f"n_outliers={i}" for i in range2],
+    title="TRIMAP train and test projections with variation in number of inliers and number of outliers",
+    )
+```
+
+### Utilities
+
+The two utility modules are `DimRed.utils.data` and `DimRed.utils.dr_utils`. The first module has purpose to load csv files to `numpy.array` /  `pandas.DataFrame` while the latter concerns itself with batch processing.
+
+The main method in `dr_utils`is `reduce_data_with_params` which given a dictionary with parameter value pairs transforms a given data set according to all passed methods.
+
+## For developpers
+
+To run the unit tests clone the repo make sure that pytest is installed. Then run
+
+```bash
+cd test
+pytest test_*.py
+```
+
+### Contributing
+
+To contribute please [fork, clone, and submit a pull request](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)!
