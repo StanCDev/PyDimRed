@@ -2,7 +2,8 @@ Metadata-Version: 2.1
 Name: DimRed
 Version: 0.0.1
 Summary: Dimensionality reduction library
-Home-page: https://github.com/smrfeld/sphinx_autodoc_tutorial
+Home-page: https://github.com/StanCDev/DimRed
+Download-URL: https://github.com/StanCDev/DimRed/archive/refs/tags/v_01.tar.gz
 Author: StanCDev
 Author-email: stancastellana@icloud.com
 Classifier: Programming Language :: Python :: 3
@@ -11,6 +12,17 @@ Classifier: Operating System :: OS Independent
 Requires-Python: >=3.12
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: sklearn
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: joblib
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
+Requires-Dist: umap
+Requires-Dist: trimap
+Requires-Dist: pacmap
+Requires-Dist: openTSNE
+Requires-Dist: pathlib
 
 # DimRed
 

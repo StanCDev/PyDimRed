@@ -9,6 +9,7 @@ DimRed/transform.py
 DimRed.egg-info/PKG-INFO
 DimRed.egg-info/SOURCES.txt
 DimRed.egg-info/dependency_links.txt
+DimRed.egg-info/requires.txt
 DimRed.egg-info/top_level.txt
 DimRed/utils/__init__.py
 DimRed/utils/data.py

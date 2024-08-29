@@ -31,7 +31,7 @@ setuptools.setup(
     # packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: Apache 2.0 license",
+        "License :: Apache-2.0",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.12',

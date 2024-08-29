@@ -1,0 +1,11 @@
+sklearn
+numpy
+pandas
+joblib
+seaborn
+matplotlib
+umap
+trimap
+pacmap
+openTSNE
+pathlib
