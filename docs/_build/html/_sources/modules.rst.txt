@@ -1,7 +1,7 @@
-DimRed
-======
+PyDimRed
+========
 
 .. toctree::
    :maxdepth: 4
 
-   DimRed
+   PyDimRed

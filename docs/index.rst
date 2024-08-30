@@ -1,24 +1,20 @@
-.. DimRed documentation master file, created by
-   sphinx-quickstart on Fri Jul 26 12:00:40 2024.
+.. PyDimRed documentation master file, created by
+   sphinx-quickstart on Fri Aug 30 11:03:11 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-DimRed
-======
-
-Lorem Ipsum
-
-**Installation**
-
-To install simply do the following
-
-.. code:: bash
-
-   pip install DimRed
+Welcome to PyDimRed's documentation!
+====================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   readme_link.md
    modules.rst
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
