@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DimRed package &mdash; DimRed  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DimRed.utils package" href="DimRed.utils.html" />
+    <link rel="prev" title="DimRed" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DimRed
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html">DimRed</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DimRed</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DimRed package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DimRed.utils.html">DimRed.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DimRed.evaluation">DimRed.evaluation module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.evaluation.ModelEvaluator"><code class="docutils literal notranslate"><span class="pre">ModelEvaluator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.evaluation.one_NN_accuracy"><code class="docutils literal notranslate"><span class="pre">one_NN_accuracy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DimRed.exceptions">DimRed.exceptions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.exceptions.DimensionError"><code class="docutils literal notranslate"><span class="pre">DimensionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.exceptions.checkCondition"><code class="docutils literal notranslate"><span class="pre">checkCondition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.exceptions.checkDimensionCondition"><code class="docutils literal notranslate"><span class="pre">checkDimensionCondition()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DimRed.plot">DimRed.plot module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.plot.display"><code class="docutils literal notranslate"><span class="pre">display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.plot.display_accuracies"><code class="docutils literal notranslate"><span class="pre">display_accuracies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.plot.display_group"><code class="docutils literal notranslate"><span class="pre">display_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.plot.display_heatmap"><code class="docutils literal notranslate"><span class="pre">display_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.plot.display_heatmap_df"><code class="docutils literal notranslate"><span class="pre">display_heatmap_df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.plot.display_training_validation"><code class="docutils literal notranslate"><span class="pre">display_training_validation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DimRed.transform">DimRed.transform module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DimRed.transform.TransformWrapper"><code class="docutils literal notranslate"><span class="pre">TransformWrapper</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DimRed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DimRed</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">DimRed</a></li>
+      <li class="breadcrumb-item active">DimRed package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/DimRed.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dimred-package">
+<h1>DimRed package<a class="headerlink" href="#dimred-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DimRed.utils.html">DimRed.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DimRed.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DimRed.utils.html#module-DimRed.utils.data">DimRed.utils.data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DimRed.utils.html#DimRed.utils.data.load_data_df"><code class="docutils literal notranslate"><span class="pre">load_data_df()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DimRed.utils.html#DimRed.utils.data.load_data_np"><code class="docutils literal notranslate"><span class="pre">load_data_np()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DimRed.utils.html#DimRed.utils.data.save_data"><code class="docutils literal notranslate"><span class="pre">save_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DimRed.utils.html#module-DimRed.utils.dr_utils">DimRed.utils.dr_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DimRed.utils.html#DimRed.utils.dr_utils.path_to_names"><code class="docutils literal notranslate"><span class="pre">path_to_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DimRed.utils.html#DimRed.utils.dr_utils.reduce_data_with_params"><code class="docutils literal notranslate"><span class="pre">reduce_data_with_params()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DimRed.utils.html#module-DimRed.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-DimRed.evaluation">
+<span id="dimred-evaluation-module"></span><h2>DimRed.evaluation module<a class="headerlink" href="#module-DimRed.evaluation" title="Link to this heading"></a></h2>
+<p>This module provides a class to evaluate the performance of DR methods.
+The two main methods are cross validation and a variation of it where seperate models are trained
+on a train and validation set due to some DR models only having a ‘fit_transform’ method.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="DimRed.evaluation.ModelEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DimRed.evaluation.</span></span><span class="sig-name descname"><span class="pre">ModelEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Pipeline(steps=[('Scaler',</span> <span class="pre">StandardScaler()),</span> <span class="pre">('OneNN',</span> <span class="pre">KNeighborsClassifier(n_neighbors=1))])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scorer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_or_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MAX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.evaluation.ModelEvaluator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ModelEvaluator is a class that evaluates the performance of DR methods on a given X, y data set.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.evaluation.ModelEvaluator.cross_validation">
+<span class="sig-name descname"><span class="pre">cross_validation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.evaluation.ModelEvaluator.cross_validation" title="Link to this definition"></a></dt>
+<dd><p>Grid search cross validation for dimensionality reduction. ‘parameters’ defines a map from parameter name to all values that
+parameter takes. Fitness / scoring of DR model is determined by estimator or scorer (must have a score function). Note that all DR models passed
+must implement a ‘fit’ and ‘transform’ method to be coherent with the sklearn API</p>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>best_score (float): best score (accuracy in this case)
+best_params (dict): best parameters
+results (pd.Dataframe): dataframe of results</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.evaluation.ModelEvaluator.grid_search_dr_performance">
+<span class="sig-name descname"><span class="pre">grid_search_dr_performance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.evaluation.ModelEvaluator.grid_search_dr_performance" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the performance of dimensionality reduction (DR) models.</p>
+<p>This method performs the following steps to assess the quality of DR models like TSNE and TRIMAP:</p>
+<ol class="arabic simple">
+<li><p>Fits a DR model on the training data and transforms the training data.</p></li>
+<li><p>Fits a new DR model on the validation data and transforms the validation data.</p></li>
+<li><p>Uses an estimator to obtain performance value. For classification an sklearn pipeline with a Standard Scaler and 1-Nearest Neighbour classifier is used by default. For regression a 1-NN regressor can be used instead of a classifier</p></li>
+</ol>
+<p>Process is repeated according to ‘K’ fold cross validation with ‘n_repeats’ repetitions per fold</p>
+<section id="id1">
+<h3>Returns:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>best_score (float): best score (accuracy in this case)
+best_params (dict): best parameters
+results (pd.Dataframe): dataframe of results. There is a column for each parameter and two extra columns:
+one for empirical mean score with values of parameters on that line, and one for the empirical variance</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.evaluation.one_NN_accuracy">
+<span class="sig-prename descclassname"><span class="pre">DimRed.evaluation.</span></span><span class="sig-name descname"><span class="pre">one_NN_accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'CLASSIFICATION'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#DimRed.evaluation.one_NN_accuracy" title="Link to this definition"></a></dt>
+<dd><p>Trains a 1-NN algorithm on Xtrain and ytrain to output accuracy of prediction on Xtest dataset</p>
+<section id="args">
+<h3>Args:<a class="headerlink" href="#args" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X_train (np.array): N x D dimensional array of training data. N data points, D features</p>
+<p>y_train (np.array): N dimensional array of training labels</p>
+<p>X_val (np.array): N x D dimensional array of test data</p>
+<p>y_val (np.array):  N dimensional array of test labels</p>
+<p>task_type (str): Type of task - ‘classification’ or ‘regression’.</p>
+</div></blockquote>
+</section>
+<section id="id2">
+<h3>Returns:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>accuracy (float): accuracy of test data with 1-NN</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-DimRed.exceptions">
+<span id="dimred-exceptions-module"></span><h2>DimRed.exceptions module<a class="headerlink" href="#module-DimRed.exceptions" title="Link to this heading"></a></h2>
+<p>This module defines new Error(s) used in the library. They are:</p>
+<ul class="simple">
+<li><p>DimensionError: should be raised when dimension constraints are not respected in a method</p></li>
+</ul>
+<p>This module also contains utility functions to raise these errors if a boolean condition is not satisfied.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="DimRed.exceptions.DimensionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DimRed.exceptions.</span></span><span class="sig-name descname"><span class="pre">DimensionError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.exceptions.DimensionError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception raised for errors in data dimensions.</p>
+<section id="attributes">
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>message (str): explanation of the error</p>
+<p>X1 : Shape of first array</p>
+<p>X2 : Shape of second array</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.exceptions.checkCondition">
+<span class="sig-prename descclassname"><span class="pre">DimRed.exceptions.</span></span><span class="sig-name descname"><span class="pre">checkCondition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cond</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.exceptions.checkCondition" title="Link to this definition"></a></dt>
+<dd><p>Check if a boolean condition is true. If not raise a Value Error</p>
+<section id="id3">
+<h3>Args:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>cond (bool): condition to check</p>
+<p>message (str): error message to print</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h3>Returns:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.exceptions.checkDimensionCondition">
+<span class="sig-prename descclassname"><span class="pre">DimRed.exceptions.</span></span><span class="sig-name descname"><span class="pre">checkDimensionCondition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cond</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.exceptions.checkDimensionCondition" title="Link to this definition"></a></dt>
+<dd><p>Check if a boolean condition related to array dimensions is true. If not raise a Dimension Error</p>
+<section id="id5">
+<h3>Args:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>cond (bool): condition to check</p>
+<p>message (str): error message to print</p>
+<p>X1: shape of first array</p>
+<p>X2: shape of second array</p>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3>Returns:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-DimRed.plot">
+<span id="dimred-plot-module"></span><h2>DimRed.plot module<a class="headerlink" href="#module-DimRed.plot" title="Link to this heading"></a></h2>
+<p>This module provides various functions to visualize and evaluate the performance of
+dimensionality reduction (DR) models using different plots. The functions included
+can display relational plots, scatter plots, heatmaps, line plots, and bar plots to help in analyzing the performance
+of models such as TSNE, TRIMAP, and others.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.plot.display">
+<span class="sig-prename descclassname"><span class="pre">DimRed.plot.</span></span><span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.plot.display" title="Link to this definition"></a></dt>
+<dd><p>Display 3 dimensional data on a seaborn.relplot.
+Two input feature dimensions in X and one output dimension in Y</p>
+<section id="id7">
+<h3>Args:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X (np.array): N x 2 dimensional array of feature data</p>
+<p>y (np.array): N dimensional array of label / output data</p>
+<p>marker_size (int) : size of markers on seaborn.relplot, default=5</p>
+<p>title (str) : plot title. default=None</p>
+<p>x_label (str): x axis label name</p>
+<p>y_label (str): y axis label name</p>
+<p>hue_label (str): name of color hue variable</p>
+<p>figsize (tuple): x and y figure size in inches. Default = None</p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h3>Returns:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.plot.display_accuracies">
+<span class="sig-prename descclassname"><span class="pre">DimRed.plot.</span></span><span class="sig-name descname"><span class="pre">display_accuracies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accuracies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'accuracy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.plot.display_accuracies" title="Link to this definition"></a></dt>
+<dd><p>Simple function to plot accuracies and method name on a bar graph with color scale proportional to
+accuracy</p>
+<section id="id9">
+<h3>Args:<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>names (list[str]) : name of each method</p>
+<p>accuracies (list[float]): accuracy for each method</p>
+<p>hue_label (str): name of color hue variable</p>
+<p>figsize (tuple): x and y figure size in inches. Default = None</p>
+</div></blockquote>
+</section>
+<section id="return">
+<h3>Return:<a class="headerlink" href="#return" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.plot.display_group">
+<span class="sig-prename descclassname"><span class="pre">DimRed.plot.</span></span><span class="sig-name descname"><span class="pre">display_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbr_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbr_rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.plot.display_group" title="Link to this definition"></a></dt>
+<dd><p>Given a list of train data (optionally test data) with the same labels (must all be in same order) create a multi scatter plot of all
+data on a grid. If both XtestList and ytest are not None then train data and test data will be differentiated via
+different markers. Another option that can be specified is the use of a ‘global’ grid on the graph. If grid_x_label or grid_y_label are
+a list of names grid like naming of each suplot will occur</p>
+<section id="id10">
+<h3>Args:<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>names (list[str]): Title of each subplot. Subplots don’t have titles when default = None</p>
+<p>X_train_list (list[np.array]): List of N x 2 dimensional data sets to be plotted</p>
+<p>ytrain (np.array): N dimensional array of label / output data</p>
+<p>X_test_list (list[np.array]): Optional list of N x 2 dimensional test data sets to be plotted</p>
+<p>ytest (np.array): Optional N dimensional array of label / output data</p>
+<p>nbr_cols (int): Number of columns in the grouped plot, will have at most nbrCols graphs stacked vertically</p>
+<p>nbr_rows (int): Number of rows in the grouped plot, will have at most nbrRows graphs stacked horizontally</p>
+<p>marker_size (int) : size of markers on seaborn.relplot, default=5</p>
+<p>legend (str): seaborn legend argument. “full” show each different value on legend, “auto” will make seaborn decide</p>
+<p>x_label (str): x axis label name</p>
+<p>y_label (str): y axis label name</p>
+<p>hue_label (str): name of color hue variable</p>
+<p>grid_x_label (list[str]) : x-axis labels for global grid of subplots. default = None,</p>
+<p>grid_y_label (list[str]) : y-axis labels for global grid of subplots. default = None</p>
+<p>figsize (tuple): x and y figure size in inches. Default = None</p>
+</div></blockquote>
+</section>
+<section id="id11">
+<h3>Returns:<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.plot.display_heatmap">
+<span class="sig-prename descclassname"><span class="pre">DimRed.plot.</span></span><span class="sig-name descname"><span class="pre">display_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.plot.display_heatmap" title="Link to this definition"></a></dt>
+<dd><p>Plot values of a 2D array on a heatmap with range of x and y values and corresponding feature names</p>
+<section id="id12">
+<h3>Args:<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X (np.array) : N1 x N2 two dimensional array of values.</p>
+<p>x_range (list) : list of values for feature x of length N1. Each value corresponds to a row</p>
+<p>y_range (list) : list of values for feature y of length N2. Each value corresponds to a column</p>
+<p>x_label (str): x axis label name</p>
+<p>y_label (str): y axis label name</p>
+<p>figsize (tuple): x and y figure size in inches. Default = None</p>
+</div></blockquote>
+</section>
+<section id="id13">
+<h3>Returns:<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.plot.display_heatmap_df">
+<span class="sig-prename descclassname"><span class="pre">DimRed.plot.</span></span><span class="sig-name descname"><span class="pre">display_heatmap_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.plot.display_heatmap_df" title="Link to this definition"></a></dt>
+<dd><p>Plot values of a data frame on a heatmap given feature column names and output column name</p>
+<section id="id14">
+<h3>Args:<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>df (pd.df) : N1 x N2 two dimensional array of values.</p>
+<p>xRange (list) : list of values for feature x of length N1</p>
+<p>yRange (list) : list of values for feature y of length N2</p>
+<p>feature1 (str) : name of first feature (x)</p>
+<p>feature2 (str): name of second feature (y)</p>
+<p>values (str): name of values in data frame</p>
+<p>figsize (tuple): x and y figure size in inches. Default = None</p>
+</div></blockquote>
+</section>
+<section id="id15">
+<h3>Returns:<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DimRed.plot.display_training_validation">
+<span class="sig-prename descclassname"><span class="pre">DimRed.plot.</span></span><span class="sig-name descname"><span class="pre">display_training_validation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NumberNeighbours'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.plot.display_training_validation" title="Link to this definition"></a></dt>
+<dd><p>Line plot of accuracy vs. a common variable parameter for multiple methods</p>
+<section id="id16">
+<h3>Args:<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>x (list): list of values x feature takes</p>
+<p>y (pd.DataFrame): Each column is a method, and rows are corresponding accuracies for that method at
+given parameter value</p>
+<p>x_name (str): Name of x feature being varied</p>
+<p>title (str): plot title. Default is None, no title</p>
+<p>figsize (tuple): x and y figure size in inches. Default = None</p>
+</div></blockquote>
+</section>
+<section id="id17">
+<h3>Return:<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span> <span class="c1"># list of n_nbrs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;TSNE&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">94.0990</span><span class="p">,</span> <span class="mf">93.4519</span><span class="p">,</span> <span class="mf">91.9385</span><span class="p">,</span> <span class="mf">92.4469</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;TRIMAP&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">82.5421</span><span class="p">,</span> <span class="mf">82.1633</span><span class="p">,</span> <span class="mf">82.5700</span><span class="p">,</span> <span class="mf">82.3850</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">displayTrainVal</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-DimRed.transform">
+<span id="dimred-transform-module"></span><h2>DimRed.transform module<a class="headerlink" href="#module-DimRed.transform" title="Link to this heading"></a></h2>
+<p>This module provides a wrapper class for any dimensionality reduction (DR) technique
+such as PCA, UMAP, TSNE, TRIMAP, and PACMAP. The TransformWrapper class standardizes the
+interface for these techniques, making it easier to integrate and use them in
+machine learning workflows.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DimRed.transform.</span></span><span class="sig-name descname"><span class="pre">TransformWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_nbrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.transform.TransformWrapper" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TransformerMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code></p>
+<p>A wrapper class that provides a consistent interface for multiple dimensionality reduction methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.transform.TransformWrapper.fit" title="Link to this definition"></a></dt>
+<dd><p>Call the fit function on wrapped model. Not all models implement this function, if not the case
+value error is thrown</p>
+<section id="id18">
+<h3>Args:<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X (np.array): N x D array used to fit the model</p>
+<p>y (np.array): default = None, usually unused but label array for corresponding X data</p>
+</div></blockquote>
+</section>
+<section id="id19">
+<h3>Returns:<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>TransformWrapper: fitted transform wrapper</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#DimRed.transform.TransformWrapper.fit_transform" title="Link to this definition"></a></dt>
+<dd><p>Calls the wrapped model’s fit transform method</p>
+<section id="id20">
+<h3>Args:<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X (np.array): N x D dimensional array to fit model with</p>
+<p>y (np.array): unused</p>
+</div></blockquote>
+</section>
+<section id="id21">
+<h3>Returns:<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>np.array: transformed data</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.from_params">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DimRed.transform.TransformWrapper" title="DimRed.transform.TransformWrapper"><span class="pre">TransformWrapper</span></a></span></span><a class="headerlink" href="#DimRed.transform.TransformWrapper.from_params" title="Link to this definition"></a></dt>
+<dd><p>Takes the same arguments as set params, and returns a new instance of type TransformWrapper.
+Factory / Class method.</p>
+<section id="id22">
+<h3>Args:<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>**params : name value pairs that correspond to TransformWrapper attribute</p>
+</div></blockquote>
+</section>
+<section id="id23">
+<h3>Returns:<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>TransformWrapper</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.transform.TransformWrapper.get_params" title="Link to this definition"></a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>deep<span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>params<span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.reset_model">
+<span class="sig-name descname"><span class="pre">reset_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#DimRed.transform.TransformWrapper.reset_model" title="Link to this definition"></a></dt>
+<dd><p>Reset the model with previously passed parameters.
+For example models like trimap.TRIMAP can only have fit transform called once!</p>
+<section id="id25">
+<h3>Returns:<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.transform.TransformWrapper.set_params" title="Link to this definition"></a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<section id="id26">
+<h3>Parameters<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><a href="#id27"><span class="problematic" id="id28">**</span></a>params<span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</section>
+<section id="id29">
+<h3>Returns<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>self<span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DimRed.transform.TransformWrapper.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DimRed.transform.TransformWrapper.transform" title="Link to this definition"></a></dt>
+<dd><p>Call the transform function on wrapped model. Not all models implement this function, if not the case
+value error is thrown</p>
+<section id="id30">
+<h3>Args:<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X (np.array): N x D array of data to be transformed</p>
+</div></blockquote>
+</section>
+<section id="id31">
+<h3>Returns:<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>X_reduced (np.array): transformed data</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-DimRed">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-DimRed" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="DimRed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DimRed.utils.html" class="btn btn-neutral float-right" title="DimRed.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Stanislas Castellana.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
