@@ -52,11 +52,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#module-PyDimRed.evaluation">PyDimRed.evaluation module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#module-PyDimRed.exceptions">PyDimRed.exceptions module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#module-PyDimRed.plot">PyDimRed.plot module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#module-PyDimRed.transform">PyDimRed.transform module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#module-PyDimRed">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#pydimred-evaluation-module">PyDimRed.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#pydimred-exceptions-module">PyDimRed.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#pydimred-plot-module">PyDimRed.plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#pydimred-transform-module">PyDimRed.transform module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyDimRed.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -94,131 +94,14 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="module-PyDimRed.utils.data">
-<span id="pydimred-utils-data-module"></span><h2>PyDimRed.utils.data module<a class="headerlink" href="#module-PyDimRed.utils.data" title="Link to this heading"></a></h2>
-<p>Basic utility module to load and save csv files to different formats</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="PyDimRed.utils.data.load_data_df">
-<span class="sig-prename descclassname"><span class="pre">PyDimRed.utils.data.</span></span><span class="sig-name descname"><span class="pre">load_data_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#PyDimRed.utils.data.load_data_df" title="Link to this definition"></a></dt>
-<dd><p>Load a csv file with a given file and format it as a pandas data frame</p>
-<section id="args">
-<h3>Args:<a class="headerlink" href="#args" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>path (file | str | pathlib.Path): path to file</p>
-</div></blockquote>
-<section id="returns">
-<h4>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h4>
-<blockquote>
-<div><p>data (pd.df)</p>
-</div></blockquote>
+<section id="pydimred-utils-data-module">
+<h2>PyDimRed.utils.data module<a class="headerlink" href="#pydimred-utils-data-module" title="Link to this heading"></a></h2>
 </section>
+<section id="pydimred-utils-dr-utils-module">
+<h2>PyDimRed.utils.dr_utils module<a class="headerlink" href="#pydimred-utils-dr-utils-module" title="Link to this heading"></a></h2>
 </section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="PyDimRed.utils.data.load_data_np">
-<span class="sig-prename descclassname"><span class="pre">PyDimRed.utils.data.</span></span><span class="sig-name descname"><span class="pre">load_data_np</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#PyDimRed.utils.data.load_data_np" title="Link to this definition"></a></dt>
-<dd><p>Load a csv file with a given file and format it as a numpy array</p>
-<section id="id1">
-<h3>Args:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>path (file | str | pathlib.Path): path to file</p>
-</div></blockquote>
-<section id="id2">
-<h4>Returns:<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
-<blockquote>
-<div><p>data (np.array)</p>
-</div></blockquote>
-</section>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="PyDimRed.utils.data.save_data">
-<span class="sig-prename descclassname"><span class="pre">PyDimRed.utils.data.</span></span><span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#PyDimRed.utils.data.save_data" title="Link to this definition"></a></dt>
-<dd><p>Save a numpy array to a .csv file</p>
-<section id="id3">
-<h3>Args:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>path (file | str | pathlib.Path): path to file</p>
-</div></blockquote>
-<section id="id4">
-<h4>Returns:<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
-<blockquote>
-<div><p>None</p>
-</div></blockquote>
-</section>
-</section>
-</dd></dl>
-
-</section>
-<section id="module-PyDimRed.utils.dr_utils">
-<span id="pydimred-utils-dr-utils-module"></span><h2>PyDimRed.utils.dr_utils module<a class="headerlink" href="#module-PyDimRed.utils.dr_utils" title="Link to this heading"></a></h2>
-<p>Dimensionality reduction utility functions</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="PyDimRed.utils.dr_utils.path_to_names">
-<span class="sig-prename descclassname"><span class="pre">PyDimRed.utils.dr_utils.</span></span><span class="sig-name descname"><span class="pre">path_to_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#PyDimRed.utils.dr_utils.path_to_names" title="Link to this definition"></a></dt>
-<dd><p>Small utility methods to extract filename without file extension from a list of paths</p>
-<section id="id5">
-<h3>Args:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>paths (list[str]): list of paths</p>
-</div></blockquote>
-</section>
-<section id="id6">
-<h3>Returns:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>list[str]</p>
-</div></blockquote>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="PyDimRed.utils.dr_utils.reduce_data_with_params">
-<span class="sig-prename descclassname"><span class="pre">PyDimRed.utils.dr_utils.</span></span><span class="sig-name descname"><span class="pre">reduce_data_with_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">method_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_save_folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyDimRed.utils.dr_utils.reduce_data_with_params" title="Link to this definition"></a></dt>
-<dd><p>Given a data set (X, y) and dict(s) containing parameter to value mapping, obtain all reduced data sets.</p>
-<section id="id7">
-<h3>Args:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>X (np.array): N x D dimensional data array</p>
-<p>y (np.array): N dimensional labels array</p>
-<p>*method_params (dict): dictionary input / set_params input to define DR models that will reduce data.
-The resulting parameters will be the cross product of all combinations of parameters in a dictonary, and the union of
-disjoint dictionaries. See sklearn.model_selection.ParameterGrid for more information.</p>
-<p>save (bool): if True save data in disk</p>
-<p>base_save_folder (pathlib.Path): directory where data will be saved if save is True</p>
-<dl class="simple">
-<dt>n_jobs (int): Number of jobs for the joblib backend. Default = 1. Setting n_jobs = -1 is equivalent to</dt><dd><p>setting to the maximum number of jobs system can handle. Note that for small data sets or few parameter
-combinations it can be quicker to set n_jobs = 1</p>
-</dd>
-</dl>
-</div></blockquote>
-</section>
-<section id="id8">
-<h3>Returns:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>tuple : list of reduced data, list of all paths (if save = False list of all names returned)</p>
-</div></blockquote>
-</section>
-<section id="examples">
-<h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
-<p>Examples of values for methodParams:
-Single parameter</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;TSNE&quot;</span><span class="p">,</span> <span class="s2">&quot;UMAP&quot;</span><span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;n_nbrs&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">80</span><span class="p">]}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">reduce_data_with_params</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">param</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Multiple parameters</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;method&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;TRIMAP&quot;</span><span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;n_nbrs&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">80</span><span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;n_outliers&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span> <span class="p">,</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PCA&quot;</span><span class="p">]}</span> <span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">reduce_data_with_params</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</dd></dl>
-
-</section>
-<section id="module-PyDimRed.utils">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyDimRed.utils" title="Link to this heading"></a></h2>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 </section>
 </section>
 
