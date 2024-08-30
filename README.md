@@ -18,6 +18,10 @@ cd PyDimRed
 pip install .
 ```
 
+## Documentation
+
+[PyDimRed documentation](https://stancdev.github.io/PyDimRed/index.html) is made using sphinx and Read-The-Docs theme.
+
 ## How to use PyDimRed
 As stated previously, PyDimRed is centered around 3 functionalities and a DR utility module that will be explored through examples.
 
