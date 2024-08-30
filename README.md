@@ -169,6 +169,7 @@ Plotting is built over the seaborn library. Methods in the module `PyDimRed.plot
 The most flexible method for qualitative comparisons of reduced data is `display_group`. It can be used in three main different ways:
 
 1. To simply plot transformed data from the same source data set with heterogeneous models as below.
+
 ```python
 from PyDimRed.utils.dr_utils import reduce_data_with_params
 from PyDimRed.plot import display_group
@@ -193,6 +194,7 @@ display_group(
 ```
 
 2. To plot transformed data with different model parameters in a grid like fashion.
+
 ```python
 from PyDimRed.utils.dr_utils import reduce_data_with_params
 from PyDimRed.plot import display_group
@@ -225,6 +227,7 @@ display_group(
 ```
 
 3. To plot training and test data on the same subplots to compare transformations. 
+
 ```python
 from PyDimRed.utils.dr_utils import reduce_data_with_params
 from PyDimRed.plot import display_group
