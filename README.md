@@ -3,6 +3,7 @@
 PyDimRed is a dimenstionality reduction (DR) library built around sklearn. It integrates three main functionalities: data **transformation**, model **evaluation**, and data **plotting**.
 
 ## Install
+
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install PyDimRed.
 
 The dependencies for this library are [joblib](https://www.google.com/search?client=firefox-b-d&q=python+joblib), [seaborn](https://seaborn.pydata.org/), [numpy](https://numpy.org/), [sci-kit learn](https://scikit-learn.org/stable/), [umap](https://umap-learn.readthedocs.io/en/latest/), [pacmap](https://pypi.org/project/pacmap/), [trimap](https://pypi.org/project/trimap/), [open t-SNE](https://opentsne.readthedocs.io/en/stable/), and [pandas](https://pandas.pydata.org/).
